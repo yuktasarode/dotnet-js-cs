@@ -23,11 +23,11 @@ public class UsersController : ControllerBase
     }
 
 
-    // GET /api/users
+    // GET /api/users?name=john
     [HttpGet]
-    public async Task<IActionResult> GetUsers()
+    public async Task<IActionResult> GetUsers( [FromQuery] string? firstName, [FromQuery] string? lastName)
     {
-        var users = await _userService.GetUsers();
+        var users = await _userService.GetUsers(firstName, lastName);
         return Ok(users);
     }
 
