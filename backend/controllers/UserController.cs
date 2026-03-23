@@ -1,3 +1,14 @@
+// using
+// api
+// controller
+// class
+// interface
+// constructor
+// type 
+// method
+// UACCICTM
+
+
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
