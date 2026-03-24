@@ -4,7 +4,7 @@ public class UserService : IUserService
 {
     public async Task<List<User>> GetUsers(string? firstName, string? lastName)
     {
-        using var client = new HttpClient();
+        using var client = new HttpClient(); // using disposes cclient variable, just like try , finally. use where you own it. ideally this should be in a httpfactory
 
         var json = await client.GetStringAsync("https://api.example.com/users");
 
