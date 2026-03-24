@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/users")]
-public class UsersController : ControllerBase
+public class UsersController : ControllerBase // give ok, badrequest, notfound - IActionResult also gives the same but for return type.
 {
     private readonly IUserService _userService;
 
