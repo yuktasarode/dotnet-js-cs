@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen();
 
 // Register services
 builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<IPlayerService, PlayerService>();
 
 var app = builder.Build();
 
