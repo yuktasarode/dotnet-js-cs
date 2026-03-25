@@ -18,17 +18,17 @@ public class UserService : IUserService
     {
         using var client = new HttpClient(); // using disposes cclient variable, just like try , finally. use where you own it. ideally this should be in a httpfactory
 
-        var json = await client.GetStringAsync("https://api.example.com/users");
+        // var json = await client.GetStringAsync("https://api.example.com/users");
 
-        var users = JsonSerializer.Deserialize<List<User>>(json) ?? new List<User>();
+        // var users = JsonSerializer.Deserialize<List<User>>(json) ?? new List<User>();
         var users = _users.AsQueryable();
 
         // Apply filters in memory
         if (!string.IsNullOrEmpty(firstName))
-            users = users.Where(u => u.FirstName == firstName).ToList();
+            users = users.Where(u => u.FirstName == firstName);
 
         if (!string.IsNullOrEmpty(lastName))
-            users = users.Where(u => u.LastName == lastName).ToList();
+            users = users.Where(u => u.LastName == lastName);
 
 
         return await Task.FromResult(users.ToList());
